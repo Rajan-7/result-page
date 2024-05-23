@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: #3e52a3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: rgb(14, 14, 15);
+      }
+
+      .container {
+        height: 100vh;
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-xxl {
+        font-size: 48px;
+        font-weight: 700;
+      }
+
+      .text-l {
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .text-md {
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: normal;
+      }
+      .text-sm {
+        font-size: 16px;
+        line-height: 1.4;
+        font-weight: normal;
+      }
+
+      .card {
+        width: 350px;
+        height: 450px;
+        padding: 50px;
+        border-radius: 30px;
+      }
+
+      .circle {
+        padding: 20px;
+        height: 130px;
+        width: 130px;
+        background-image: radial-gradient(
+          circle 382px at 50% 50.2%,
+          rgba(73, 76, 212, 1) 0.1%,
+          rgba(3, 1, 50, 1) 100.2%
+        );
+        border-radius: 50%;
+      }
+      .result {
+        color: #fff;
+        background-color: #0093e9;
+        background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        margin-right: -20px;
+        z-index: 5;
+      }
+
+      .summary {
+        background: #f0e9e9;
+      }
+
+      .summary-contents {
+        margin: 30px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .summary-content {
+        display: flex;
+        justify-content: space-between;
+        background: #ccc;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .summary-description {
+        display: flex;
+        gap: 10px;
+      }
+
+      .summary-content:first-child {
+        background: pink;
+      }
+
+      .summary-content:nth-child(2) {
+        background: rgb(225, 225, 147);
+      }
+
+      .summary-content:nth-child(3) {
+        background: rgb(157, 224, 156);
+      }
+
+      .summary-content:nth-child(4) {
+        background: lightblue;
+      }
+
+      .summary-content span {
+        color: #503d3d;
+        font-weight: 300;
+      }
+
+      .summary-content .marks .bold {
+        font-weight: 600;
+      }
+
+      .pink {
+        color: rgb(163, 88, 101);
+      }
+
+      .yellow {
+        color: rgb(144, 144, 40);
+      }
+
+      .green {
+        color: rgb(33, 99, 33);
+      }
+
+      .blue {
+        color: rgb(45, 45, 149);
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      button {
+        text-align: center;
+        width: 70%;
+        padding: 15px 30px;
+        border-radius: 10px;
+        border: none;
+        background: rgb(8, 8, 163);
+        color: white;
+        font-size: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .result {
+          width: 420px;
+          margin-top: -25px;
+          margin-right: 0;
+        }
+        .summary {
+          width: 420px;
+          margin-top: -20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card result">
+        <p class="text-md text-center">Your Result</p>
+        <div class="circle text-center">
+          <span class="text-xxl">76</span> <br />
+          of 100
+        </div>
+        <p class="text-l text-center">Great</p>
+        <p class="text-sm text-center w-50">
+          Your Result 76 of 100 Great You scored higher than 65% of the people
+          who have taken these tests.
+        </p>
+      </div>
+      <div class="card summary">
+        <p class="text-md summary-heading">Summary</p>
+        <div class="summary-contents">
+          <div class="summary-content">
+            <div class="summary-description">
+              <img src="/assets/images/icon-reaction.svg" alt="Reaction" />
+              <p class="text-sm pink">Reaction</p>
+            </div>
+            <p class="marks">80 <span>/ 100</span></p>
+          </div>
+          <div class="summary-content">
+            <div class="summary-description">
+              <img src="/assets/images/icon-memory.svg" alt="Memory" />
+              <p class="text-sm yellow">Memory</p>
+            </div>
+            <p class="marks">92 <span>/ 100</span></p>
+          </div>
+          <div class="summary-content">
+            <div class="summary-description">
+              <img src="/assets/images/icon-verbal.svg" alt="Verbal" />
+              <p class="text-sm green">Verbal</p>
+            </div>
+            <p class="marks">61 <span>/ 100</span></p>
+          </div>
+          <div class="summary-content">
+            <div class="summary-description">
+              <img src="/assets/images/icon-visual.svg" alt="Visual" />
+              <p class="text-sm blue">Visual</p>
+            </div>
+            <p class="marks"><span class="bold"></span>72 <span>/ 100</span></p>
+          </div>
+        </div>
+        <div class="btn">
+          <button>Continue</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
